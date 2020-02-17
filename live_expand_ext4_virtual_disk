@@ -1,0 +1,13 @@
+Enlarge disk in hypervisor
+# rescan the bus
+echo "- - -" > /sys/class/scsi_host/host0/scan
+# rescan the disk
+echo 1 > /sys/block/sdc/device/rescan
+# open with parted and accept the GPT Fix when prompted
+parted /dev/sdc
+# use gdisk to delete/recreate with the larger size
+gdisk /dev/sdc
+# make sure the system recognises the new size
+partprobe
+# expand the filesystem
+resize2fs /dev/sdc1
