@@ -3,7 +3,7 @@ Enlarge disk in hypervisor
 echo "- - -" > /sys/class/scsi_host/host0/scan
 # rescan the disk
 echo 1 > /sys/block/sdc/device/rescan
-# open with parted and accept the GPT Fix when prompted
+# open with parted and accept the GPT Fix when prompted (may have to (p)rint)
 parted /dev/sdc
 # use gdisk to delete/recreate with the larger size
 gdisk /dev/sdc
