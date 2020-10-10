@@ -9,5 +9,5 @@ parted /dev/sdc
 gdisk /dev/sdc
 # make sure the system recognises the new size
 partprobe
-# expand the filesystem
+# expand the filesystem (won't work if you don't have the partition already mounted)
 resize2fs /dev/sdc1
