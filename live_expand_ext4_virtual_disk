@@ -1,6 +1,6 @@
 Enlarge disk in hypervisor
 # rescan the bus
-echo "- - -" > /sys/class/scsi_host/host0/scan
+echo "- - -" | tee /sys/class/scsi_host/host*/scan > /dev/null
 # rescan the disk
 echo 1 > /sys/block/sdc/device/rescan
 # open with parted and accept the GPT Fix when prompted (may have to (p)rint)
